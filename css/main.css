@@ -173,7 +173,7 @@ body.before-load{
     width: 50%;
     font-weight: bold;
     opacity: 0;
-
+    font-size: 0.8rem;
 }
 .pin{
     width: 1px;
@@ -289,6 +289,7 @@ body.before-load{
 }
 #scroll-section-1 .sticky-elem p{
     color: white;
+    padding-top: 5rem;
 }
 
 @media (min-width:1024px){
@@ -313,6 +314,7 @@ body.before-load{
     }
     .desc-message{
         width: 20%;
+        font-size: 1rem;
     }
     #scroll-section-2 .main-b{
         top: 20%;
