@@ -1,0 +1,334 @@
+@charset 'utf-8';
+
+html{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: .875rem;
+}
+body{
+    color: rgb(29, 29, 31);
+    letter-spacing: -0. 05em;
+    /* 스크롤막기 */
+    overflow-x: hidden; 
+}
+p{
+    line-height: 1.6;
+}
+a{
+    color: rgb(29, 29, 31);
+    text-decoration: none;
+}
+
+body.before-load{
+    /* 로딩화면에서 스크롤막기 */
+    overflow: hidden; 
+}
+.container{
+    /* 모바일 가로 스크롤 방지 */
+    overflow: hidden;
+}
+
+/* 네비게이션 */
+
+.global-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 44px;       
+    padding: 0 16px;
+    z-index: 10;
+}
+.local-nav{
+    position: absolute;
+    top: 45px;
+    left: 0;
+    width: 100%;
+    height: 52px;
+    padding: 0 16px;
+    border-bottom: 1px solid #ddd;
+    z-index: 11;
+}
+.local-nav a{
+    color: inherit;
+}
+.sticky-nav{
+    color: white;
+}
+.local-nav-sticky .local-nav{
+    position: fixed;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: saturate(180%) blur(15px);
+    -moz-backdrop-filter: saturate(180%) blur(15px);
+    -o-backdrop-filter: saturate(180%) blur(15px);
+    backdrop-filter: saturate(180%) blur(15px);
+}
+.global-nav-link,
+.local-nav-links{
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.global-nav-link{
+    justify-content: space-between;
+}
+.local-nav-links{
+    font-size: 0.8rem;
+}
+.local-nav-links a:not(.product-name){
+    margin-left: 2em;
+}
+.product-name{
+    margin-right: auto;
+    font-size: 1.4rem;
+    font-weight: bold;
+
+}
+
+/* 메인 */
+
+.scroll-section{
+    position: relative;
+    padding-top: 50vh;
+}
+#scroll-section-0 h1{
+    position: relative;
+    z-index: 5;
+    top: -15vh;
+    font-size: 4rem;
+    text-align: center;
+}
+.main-message{
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 35vh;
+    height: 3em;
+    font-size: 2.5rem;
+}
+.main-message p{
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: center;
+}
+.main-message small{
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 0.5em;
+}
+
+.sticky-elem{
+    display: none;
+    position: fixed;
+    /* position: sticky로 대체 가능*/
+    /* top: 0; */
+    left: 0;
+    width: 100%;
+}
+.sticky-elem-canvas{
+    top: 0;
+    height: 100%;
+}
+.sticky-elem-canvas canvas{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.image-blend-canvas.sticky-canvas{
+    top: 0;
+    z-index: 10;
+    position: fixed;
+}
+#show-scene-0 #scroll-section-0 .sticky-elem,
+#show-scene-1 #scroll-section-1 .sticky-elem,
+#show-scene-2 #scroll-section-2 .sticky-elem,
+#show-scene-3 #scroll-section-3 .sticky-elem{
+    display: block;
+    will-change: transform, opacity;
+}
+
+
+
+
+#scroll-section-2 .main-message{
+    font-size: 56px;
+}
+.description{
+    padding: 0 1rem;
+    font-size: 1.2rem;
+    color: #888;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.description strong{
+    float: left;
+    margin-right: 0.2em;
+    font-size: 3rem;
+    color: rgb(29, 29, 31);
+}
+.desc-message{
+    width: 50%;
+    font-weight: bold;
+    opacity: 0;
+
+}
+.pin{
+    width: 1px;
+    height: 100px;
+    background: rgb(29, 29, 31);
+}
+#scroll-section-2 .main-b{
+    top: 10%;
+    left: 40%;
+}
+#scroll-section-2 .main-c{
+    top: 15%;
+    left: 45%;
+}
+.mid-message{
+    font-size: 2rem;
+    color: #888;
+    padding: 0 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.mid-message strong{
+    font-weight: bold;
+    color: rgb(29, 29, 31);
+}
+.canvas-caption{
+    max-width: 1000px;
+    margin: -24rem auto 0;
+    color: #888;
+    padding: 0 1rem;
+    font-size: 1.2rem;
+    /* text-align: center; */
+}
+#scroll-section-3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 112px;
+    color: white;
+    background-color: darkorange;
+}
+.loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    background-color: white;
+    transition: 0.5s;
+    opacity: 0;
+}
+.before-load .container{
+    /* 로딩이 끝나면 보이게 */
+    display: none; 
+}
+.before-load .loading{
+    opacity: 1;
+}
+@keyframes loading-spin{
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@keyframes loading-ani{
+    0%{
+        stroke-dashoffset: 157;
+    }
+    75%{
+        stroke-dashoffset: -147;
+    }
+    100%{
+        stroke-dashoffset: -157;
+    }
+}
+.loading-circle{
+    width: 54px;
+    height: 54px;
+    animation: loading-spin 3s infinite;
+}
+
+.loading-circle circle{
+    stroke: black;
+    stroke-width: 4;
+     /* getTotalLength()로 구한 값 */
+    stroke-dasharray: 157;
+    stroke-dashoffset: 0;
+    fill:transparent;
+    animation: loading-ani 1s infinite;
+}
+.ribbon-path {
+	left: 50%;
+	top: 50%;
+	min-width: 850px;
+	transform: translate(-50%, -50%);
+}
+.ribbon-path path {
+	fill: none;
+	stroke: darkorange;
+	stroke-width: 62;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-dasharray: 1401, 1401;
+	stroke-dashoffset: 1401;
+}
+#scroll-section-1 .sticky-elem p{
+    color: white;
+}
+
+@media (min-width:1024px){
+    #scroll-section-0 h1{
+        font-size: 9vw;
+    }
+    .main-message{
+        font-size: 4vw;
+    }
+    .description{
+        padding: 0;
+        font-size: 32px;
+    }
+    .description strong{
+        font-size: 96px;
+    }
+    #scroll-section-2 .main-message{
+        font-size: 6vw;
+    }
+    .main-message small{
+        font-size: 1.5vw;
+    }
+    .desc-message{
+        width: 20%;
+    }
+    #scroll-section-2 .main-b{
+        top: 20%;
+        left: 53%;
+    }
+    #scroll-section-2 .main-c{
+        left: 55%;
+    }
+    .mid-message{
+        width: 1000px;
+        padding: 0;
+        font-size: 4vw;
+    }
+    .canvas-caption{
+        font-size: 32px;
+        padding: 0;
+        margin-top: -8rem;
+    }
+}
