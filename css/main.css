@@ -289,7 +289,7 @@ body.before-load{
 }
 #scroll-section-1 .sticky-elem p{
     color: white;
-    padding-top: 5rem;
+    padding-top: 4.5rem;
 }
 
 @media (min-width:1024px){
