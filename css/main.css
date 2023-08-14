@@ -1,44 +1,147 @@
 @charset 'utf-8';
 
-html{
+html {
     font-family: 'Noto Sans KR', sans-serif;
     font-size: .875rem;
 }
-body{
+
+body {
     color: rgb(29, 29, 31);
     letter-spacing: -0. 05em;
     /* 스크롤막기 */
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
-p{
+
+p {
     line-height: 1.6;
 }
-a{
+
+a {
     color: rgb(29, 29, 31);
     text-decoration: none;
 }
 
-body.before-load{
+body.before-load {
     /* 로딩화면에서 스크롤막기 */
-    overflow: hidden; 
+    overflow: hidden;
 }
-.container{
+
+.container {
     /* 모바일 가로 스크롤 방지 */
     overflow: hidden;
 }
 
 /* 네비게이션 */
+.product-name {
+    margin-right: auto;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.product-name span {
+    display: inline-block;
+}
+
+.product-name:hover span {
+    animation: jump 2s;
+    color: darkorange;
+}
+
+.product-name span:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.product-name span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.product-name span:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.product-name span:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.product-name span:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.product-name span:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+.product-name span:nth-child(7) {
+    animation-delay: 0.7s;
+}
+
+.product-name span:nth-child(8) {
+    animation-delay: 0.8s;
+}
+
+.product-name span:nth-child(9) {
+    animation-delay: 0.9s;
+}
+
+.product-name span:nth-child(10) {
+    animation-delay: 1s;
+}
+
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.global-nav-item {
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.global-nav-item::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: darkorange;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.global-nav-item:hover::before {
+    transform: scaleX(1);
+}
+
+.global-nav-item:hover {
+    transform: translateY(-5px);
+    color: darkorange;
+}
 
 .global-nav {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 44px;       
+    height: 44px;
     padding: 0 16px;
     z-index: 10;
 }
-.local-nav{
+
+.local-nav {
     position: absolute;
     top: 45px;
     left: 0;
@@ -48,13 +151,20 @@ body.before-load{
     border-bottom: 1px solid #ddd;
     z-index: 11;
 }
-.local-nav a{
+
+.common-link:hover {
+    color: darkorange;
+}
+
+.local-nav a {
     color: inherit;
 }
-.sticky-nav{
+
+.sticky-nav {
     color: white;
 }
-.local-nav-sticky .local-nav{
+
+.local-nav-sticky .local-nav {
     position: fixed;
     top: 0;
     background-color: rgba(255, 255, 255, 0.1);
@@ -63,44 +173,58 @@ body.before-load{
     -o-backdrop-filter: saturate(180%) blur(15px);
     backdrop-filter: saturate(180%) blur(15px);
 }
+
 .global-nav-link,
-.local-nav-links{
+.local-nav-links {
     max-width: 1000px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     height: 100%;
 }
-.global-nav-link{
+
+.global-nav-link {
     justify-content: space-between;
 }
-.local-nav-links{
+
+.local-nav-links {
     font-size: 0.8rem;
 }
-.local-nav-links a:not(.product-name){
-    margin-left: 2em;
-}
-.product-name{
-    margin-right: auto;
-    font-size: 1.4rem;
-    font-weight: bold;
 
+.local-nav-links a:not(.product-name) {
+    margin-left: 2em;
 }
 
 /* 메인 */
-
-.scroll-section{
+.scroll-section {
     position: relative;
     padding-top: 50vh;
 }
-#scroll-section-0 h1{
+
+.scroll-section-0-main-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-name {
     position: relative;
     z-index: 5;
     top: -15vh;
     font-size: 4rem;
     text-align: center;
+
 }
-.main-message{
+
+.main-name:hover span {
+    display: inline-block;
+    animation: jump 2s;
+    animation-delay: 0.1s;
+    color: darkorange;
+}
+
+
+.main-message {
     opacity: 0;
     display: flex;
     justify-content: center;
@@ -109,18 +233,20 @@ body.before-load{
     height: 3em;
     font-size: 2.5rem;
 }
-.main-message p{
+
+.main-message p {
     font-weight: bold;
     line-height: 1.2;
     text-align: center;
 }
-.main-message small{
+
+.main-message small {
     display: block;
     font-size: 1.2rem;
     margin-bottom: 0.5em;
 }
 
-.sticky-elem{
+.sticky-elem {
     display: none;
     position: fixed;
     /* position: sticky로 대체 가능*/
@@ -128,24 +254,28 @@ body.before-load{
     left: 0;
     width: 100%;
 }
-.sticky-elem-canvas{
+
+.sticky-elem-canvas {
     top: 0;
     height: 100%;
 }
-.sticky-elem-canvas canvas{
+
+.sticky-elem-canvas canvas {
     position: absolute;
     top: 50%;
     left: 50%;
 }
-.image-blend-canvas.sticky-canvas{
+
+.image-blend-canvas.sticky-canvas {
     top: 0;
     z-index: 10;
     position: fixed;
 }
+
 #show-scene-0 #scroll-section-0 .sticky-elem,
 #show-scene-1 #scroll-section-1 .sticky-elem,
 #show-scene-2 #scroll-section-2 .sticky-elem,
-#show-scene-3 #scroll-section-3 .sticky-elem{
+#show-scene-3 #scroll-section-3 .sticky-elem {
     display: block;
     will-change: transform, opacity;
 }
@@ -153,53 +283,62 @@ body.before-load{
 
 
 
-#scroll-section-2 .main-message{
+#scroll-section-2 .main-message {
     font-size: 56px;
 }
-.description{
+
+.description {
     padding: 0 1rem;
     font-size: 1.2rem;
     color: #888;
     max-width: 1000px;
     margin: 0 auto;
 }
-.description strong{
+
+.description strong {
     float: left;
     margin-right: 0.2em;
     font-size: 3rem;
     color: rgb(29, 29, 31);
 }
-.desc-message{
+
+.desc-message {
     width: 50%;
     font-weight: bold;
     opacity: 0;
     font-size: 0.8rem;
 }
-.pin{
+
+.pin {
     width: 1px;
     height: 100px;
     background: rgb(29, 29, 31);
 }
-#scroll-section-2 .main-b{
+
+#scroll-section-2 .main-b {
     top: 10%;
     left: 40%;
 }
-#scroll-section-2 .main-c{
+
+#scroll-section-2 .main-c {
     top: 15%;
     left: 45%;
 }
-.mid-message{
+
+.mid-message {
     font-size: 2rem;
     color: #888;
     padding: 0 1rem;
     max-width: 1000px;
     margin: 0 auto;
 }
-.mid-message strong{
+
+.mid-message strong {
     font-weight: bold;
     color: rgb(29, 29, 31);
 }
-.canvas-caption{
+
+.canvas-caption {
     max-width: 1000px;
     margin: -24rem auto 0;
     color: #888;
@@ -207,12 +346,14 @@ body.before-load{
     font-size: 1.2rem;
     /* text-align: center; */
 }
-#scroll-section-3{
+
+#scroll-section-3 {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.footer{
+
+.footer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -220,7 +361,8 @@ body.before-load{
     color: white;
     background-color: darkorange;
 }
-.loading{
+
+.loading {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -234,101 +376,121 @@ body.before-load{
     transition: 0.5s;
     opacity: 0;
 }
-.before-load .container{
+
+.before-load .container {
     /* 로딩이 끝나면 보이게 */
-    display: none; 
+    display: none;
 }
-.before-load .loading{
+
+.before-load .loading {
     opacity: 1;
 }
-@keyframes loading-spin{
-    100%{
+
+@keyframes loading-spin {
+    100% {
         transform: rotate(360deg);
     }
 }
-@keyframes loading-ani{
-    0%{
+
+@keyframes loading-ani {
+    0% {
         stroke-dashoffset: 157;
     }
-    75%{
+
+    75% {
         stroke-dashoffset: -147;
     }
-    100%{
+
+    100% {
         stroke-dashoffset: -157;
     }
 }
-.loading-circle{
+
+.loading-circle {
     width: 54px;
     height: 54px;
     animation: loading-spin 3s infinite;
 }
 
-.loading-circle circle{
+.loading-circle circle {
     stroke: black;
     stroke-width: 4;
-     /* getTotalLength()로 구한 값 */
+    /* getTotalLength()로 구한 값 */
     stroke-dasharray: 157;
     stroke-dashoffset: 0;
-    fill:transparent;
+    fill: transparent;
     animation: loading-ani 1s infinite;
 }
+
 .ribbon-path {
-	left: 50%;
-	top: 50%;
-	min-width: 850px;
-	transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    min-width: 850px;
+    transform: translate(-50%, -50%);
 }
+
 .ribbon-path path {
-	fill: none;
-	stroke: darkorange;
-	stroke-width: 62;
-	stroke-linecap: round;
-	stroke-linejoin: round;
-	stroke-dasharray: 1401, 1401;
-	stroke-dashoffset: 1401;
+    fill: none;
+    stroke: darkorange;
+    stroke-width: 62;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1401, 1401;
+    stroke-dashoffset: 1401;
 }
-#scroll-section-1 .sticky-elem p{
+
+#scroll-section-1 .sticky-elem p {
     color: white;
     padding-top: 4.5rem;
 }
 
-@media (min-width:1024px){
-    #scroll-section-0 h1{
+@media (min-width:1024px) {
+    #scroll-section-0 h1 {
         font-size: 9vw;
     }
-    .main-message{
+
+    .main-message {
         font-size: 4vw;
     }
-    .description{
+
+    .description {
         padding: 0;
         font-size: 32px;
     }
-    .description strong{
+
+    .description strong {
         font-size: 96px;
     }
-    #scroll-section-2 .main-message{
+
+    #scroll-section-2 .main-message {
         font-size: 6vw;
     }
-    .main-message small{
+
+    .main-message small {
         font-size: 1.5vw;
     }
-    .desc-message{
+
+    .desc-message {
         width: 20%;
         font-size: 1rem;
     }
-    #scroll-section-2 .main-b{
+
+    #scroll-section-2 .main-b {
         top: 20%;
         left: 53%;
     }
-    #scroll-section-2 .main-c{
+
+    #scroll-section-2 .main-c {
         left: 55%;
     }
-    .mid-message{
+
+    .mid-message {
         width: 1000px;
         padding: 0;
         font-size: 4vw;
     }
-    .canvas-caption{
+
+    .canvas-caption {
         font-size: 32px;
         padding: 0;
         margin-top: -8rem;
